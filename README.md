@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JSW Site Visit Data Chatbot
+
+A chatbot application for querying site visit data using Next.js, Node.js/Express, and Gemini AI.
+
+## Features
+
+- Modern, clean UI similar to popular chat applications
+- Real-time chat interface
+- Chat history sidebar
+- Integration with Gemini API (simulated in demo)
+- Responsive design
+
+## Tech Stack
+
+### Frontend
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Axios for API calls
+- React Icons
+
+### Backend
+- Node.js
+- Express
+- TypeScript
+- Cors for cross-origin support
+- Body-parser for request parsing
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (v18 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd jsw-site-visit-chatbot
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install frontend dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Install backend dependencies:
+```bash
+cd server
+npm install
+cd ..
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Environment Setup
 
-## Learn More
+1. Create `.env.local` in the root directory for the frontend:
+```
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Create `.env` in the server directory for the backend:
+```
+PORT=5000
+NODE_ENV=development
+# Add Gemini API key when integrating with the actual Gemini API
+# GEMINI_API_KEY=your_api_key
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Running the Application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Start the backend server:
+```bash
+cd server
+npm run dev
+```
 
-## Deploy on Vercel
+2. In a separate terminal, start the frontend:
+```bash
+# From the root directory
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Open your browser and navigate to `http://localhost:3000`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## How It Works
+
+- The frontend sends user messages to the backend API
+- The backend processes the messages (using Gemini AI in production)
+- Responses are sent back to the frontend and displayed in the chat interface
+- Chat history is maintained on both client and server side
+
+## Future Enhancements
+
+- Integration with actual Gemini API
+- User authentication
+- More advanced data querying capabilities
+- Export chat history
+- Voice input support
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
